@@ -21,6 +21,11 @@
 
 +(UIImage *) convertLandscapeToPortrait : (UIImage *) portraitimage;
 +(UIImage *) convertPortraitToLandscape : (UIImage *) landscapeimage;
-+(UIImage *) comBinedTwoImage :(UIImage*)firstImage : (UIImage*)secondImage ;
++(UIImage*) comBinedTwoImage:(UIImage*) fgImage
+                     inImage:(UIImage*) bgImage
+                     atPoint:(CGPoint)  point;
++(UIImage *) comBinedTwoImage2 :(UIImage*)firstImage : (UIImage*)secondImage ;
 + (NSMutableArray *) getMPOResults : (NSString *) mpofilesource;
++(void) saveImageToDocument :(UIImage *)image : (NSString *)filename;
++(UIImage *)loadUIImageFromAppDocument : (NSString *)filename;
 @end

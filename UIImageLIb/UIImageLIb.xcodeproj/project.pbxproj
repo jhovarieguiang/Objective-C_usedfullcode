@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B14FE0A1E397B9900C1B225 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B14FE091E397B9900C1B225 /* opencv2.framework */; };
+		5B3DC0381E3F32A1007BB1F8 /* ImageCVLib.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5B3DC0371E3F32A1007BB1F8 /* ImageCVLib.mm */; };
 		5B436C7D1E386C1C0071AFF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B436C7C1E386C1C0071AFF6 /* main.m */; };
 		5B436C801E386C1C0071AFF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B436C7F1E386C1C0071AFF6 /* AppDelegate.m */; };
 		5B436C831E386C1C0071AFF6 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5B436C821E386C1C0071AFF6 /* ViewController.mm */; };
@@ -17,7 +18,6 @@
 		5B436C961E386C1C0071AFF6 /* UIImageLIbTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B436C951E386C1C0071AFF6 /* UIImageLIbTests.m */; };
 		5B436CA11E386C1C0071AFF6 /* UIImageLIbUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B436CA01E386C1C0071AFF6 /* UIImageLIbUITests.m */; };
 		5B436CB11E386CA90071AFF6 /* ImageLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B436CB01E386CA90071AFF6 /* ImageLib.m */; };
-		5B436CB41E386DF10071AFF6 /* ImageCVLib.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5B436CB31E386DF10071AFF6 /* ImageCVLib.mm */; };
 		5B436CB81E386F860071AFF6 /* test.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5B436CB71E386F860071AFF6 /* test.jpeg */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		5B14FE091E397B9900C1B225 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		5B3DC0361E3F32A1007BB1F8 /* ImageCVLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCVLib.h; path = UIImageLIb/ImageCVLib.h; sourceTree = "<group>"; };
+		5B3DC0371E3F32A1007BB1F8 /* ImageCVLib.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ImageCVLib.mm; path = UIImageLIb/ImageCVLib.mm; sourceTree = "<group>"; };
 		5B436C781E386C1C0071AFF6 /* UIImageLIb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIImageLIb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B436C7C1E386C1C0071AFF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5B436C7E1E386C1C0071AFF6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,9 +60,7 @@
 		5B436CA21E386C1C0071AFF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B436CAF1E386CA90071AFF6 /* ImageLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageLib.h; path = UIImageLIb/imagelib/ImageLib.h; sourceTree = "<group>"; };
 		5B436CB01E386CA90071AFF6 /* ImageLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageLib.m; path = UIImageLIb/imagelib/ImageLib.m; sourceTree = "<group>"; };
-		5B436CB21E386DF10071AFF6 /* ImageCVLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCVLib.h; sourceTree = "<group>"; };
-		5B436CB31E386DF10071AFF6 /* ImageCVLib.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageCVLib.mm; sourceTree = "<group>"; };
-		5B436CB71E386F860071AFF6 /* test.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpeg; sourceTree = "<group>"; };
+		5B436CB71E386F860071AFF6 /* test.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = test.jpeg; path = ../test.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +113,7 @@
 		5B436C7A1E386C1C0071AFF6 /* UIImageLIb */ = {
 			isa = PBXGroup;
 			children = (
+				5B436CB71E386F860071AFF6 /* test.jpeg */,
 				5B436C7E1E386C1C0071AFF6 /* AppDelegate.h */,
 				5B436C7F1E386C1C0071AFF6 /* AppDelegate.m */,
 				5B436C811E386C1C0071AFF6 /* ViewController.h */,
@@ -156,11 +157,10 @@
 			isa = PBXGroup;
 			children = (
 				5B14FE091E397B9900C1B225 /* opencv2.framework */,
-				5B436CB71E386F860071AFF6 /* test.jpeg */,
+				5B3DC0361E3F32A1007BB1F8 /* ImageCVLib.h */,
+				5B3DC0371E3F32A1007BB1F8 /* ImageCVLib.mm */,
 				5B436CAF1E386CA90071AFF6 /* ImageLib.h */,
 				5B436CB01E386CA90071AFF6 /* ImageLib.m */,
-				5B436CB21E386DF10071AFF6 /* ImageCVLib.h */,
-				5B436CB31E386DF10071AFF6 /* ImageCVLib.mm */,
 			);
 			name = uiimagelib;
 			sourceTree = "<group>";
@@ -302,11 +302,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B3DC0381E3F32A1007BB1F8 /* ImageCVLib.mm in Sources */,
 				5B436C831E386C1C0071AFF6 /* ViewController.mm in Sources */,
 				5B436C801E386C1C0071AFF6 /* AppDelegate.m in Sources */,
 				5B436C7D1E386C1C0071AFF6 /* main.m in Sources */,
 				5B436CB11E386CA90071AFF6 /* ImageLib.m in Sources */,
-				5B436CB41E386DF10071AFF6 /* ImageCVLib.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

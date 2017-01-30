@@ -147,7 +147,19 @@
 }
 
 
-+(UIImage*)comBinedTwoImage :(UIImage*)firstImage : (UIImage*)secondImage  {
++(UIImage*) comBinedTwoImage:(UIImage*) fgImage
+                     inImage:(UIImage*) bgImage
+                     atPoint:(CGPoint)  point
+{
+    UIGraphicsBeginImageContextWithOptions(bgImage.size, FALSE, 0.0);
+    [bgImage drawInRect:CGRectMake( 0, 0, bgImage.size.width, bgImage.size.height)];
+    [fgImage drawInRect:CGRectMake( point.x, point.y, fgImage.size.width, fgImage.size.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
++(UIImage*)comBinedTwoImage2 :(UIImage*)firstImage : (UIImage*)secondImage  {
     UIGraphicsBeginImageContext(firstImage.size);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -190,10 +202,11 @@
     UIImage *coloredImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     /* NSString *systemversion = [DeviceDetect getSystemVersion];
-    if([systemversion isEqualToString:@"9.2.1"]) { //iphone 6s puti
-        // CGContextRelease(context);
-    }
-    */
+     if([systemversion isEqualToString:@"9.2.1"]) { //iphone 6s puti
+     // CGContextRelease(context);
+     }
+     */
+    // return [self recreateImage:coloredImage];
     return coloredImage;
 }
 
@@ -296,5 +309,27 @@
     free(buffer);
     return mpoextractedfileoutput;
 }
+
+
++(void) saveImageToDocument :(UIImage *)image : (NSString *)filename{
+    // UIImage *image = ...;
+    //NSString  *path = @"";
+    //[UIImageJPEGRepresentation(image, 1.0) writeToFile:path atomically:YES];
+    
+    NSString *path = [NSString stringWithFormat:@"Documents/%@",filename];
+    NSString  *pngPath = [NSHomeDirectory() stringByAppendingPathComponent:path];
+    //NSString  *pngPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Test.png"];
+    [UIImagePNGRepresentation(image) writeToFile:pngPath atomically:YES];
+}
+
++(UIImage *)loadUIImageFromAppDocument : (NSString *)filename{
+    NSArray  *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDir  = [documentPaths objectAtIndex:0];
+    NSString  *pngfile = [documentsDir stringByAppendingPathComponent:filename];
+    NSData *imgData = [NSData dataWithContentsOfFile:pngfile];
+    UIImage *thumbNail = [[UIImage alloc] initWithData:imgData];
+    return thumbNail;
+}
+
 
 @end
