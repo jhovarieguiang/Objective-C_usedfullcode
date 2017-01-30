@@ -37,6 +37,7 @@
      */
     
     //example #2 using custom filter ---------------------------------------------
+    /*
     UIImage *inputImage = [UIImage imageNamed:@"palasyo.jpeg"];
     GPUImageFilter *stillImagecustomFilter = [[GPUImageFilter alloc] initWithFragmentShaderFromFile:@"CustomShader"];
     GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:inputImage];
@@ -45,6 +46,7 @@
     [stillImageSource processImage];
     UIImage *currentFilteredVideoFrame = [stillImagecustomFilter imageFromCurrentFramebuffer];
     [self saveImageToDocument: currentFilteredVideoFrame:@"test2.jpeg"];
+    */
     
     //example #3 using single filter ---------------------------------------------
     /*
@@ -89,6 +91,21 @@
      [self saveImageToDocument: quickFilteredImage:@"test.jpg"];
      */
     
+    //example #5 blending image --------------------------------------------------------
+    UIImage * image1 = [UIImage imageNamed:@"lover.png"];
+    UIImage * image2 = [UIImage imageNamed:@"heartmask2.png"];
+    GPUImageAlphaBlendFilter *twoinputFilter = [[GPUImageAlphaBlendFilter alloc] init];
+    //GPUImageSubtractBlendFilter *twoinputFilter = [[GPUImageSubtractBlendFilter alloc] init];
+    
+    GPUImagePicture *sourcePicture1 = [[GPUImagePicture alloc] initWithImage:image1 ];
+    GPUImagePicture *sourcePicture2 = [[GPUImagePicture alloc] initWithImage:image2 ];
+    [sourcePicture1 addTarget:twoinputFilter];
+    [sourcePicture1 processImage];
+    [twoinputFilter useNextFrameForImageCapture];
+    [sourcePicture2 addTarget:twoinputFilter];
+    [sourcePicture2 processImage];
+    UIImage * image = [twoinputFilter imageFromCurrentFramebuffer];
+    [self saveImageToDocument: image :@"test.png"];
 }
 
 -(void) saveImageToDocument :(UIImage *)image : (NSString *)filename{
