@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5B0CA4251E40221800DB33AD /* barikGPUCustomFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0CA4231E40221800DB33AD /* barikGPUCustomFilter.m */; };
 		5B0CA4261E40221800DB33AD /* CustomShader2.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5B0CA4241E40221800DB33AD /* CustomShader2.fsh */; };
+		5B0CA42F1E403D8000DB33AD /* barikGPUCustomFilterTwoTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0CA42D1E403D8000DB33AD /* barikGPUCustomFilterTwoTexture.m */; };
+		5B0CA4301E403D8000DB33AD /* CustomShader3.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5B0CA42E1E403D8000DB33AD /* CustomShader3.fsh */; };
 		5B252BCB1E35A54E00ECE4C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B252BCA1E35A54E00ECE4C1 /* main.m */; };
 		5B252BCE1E35A54E00ECE4C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B252BCD1E35A54E00ECE4C1 /* AppDelegate.m */; };
 		5B252BD11E35A54E00ECE4C1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B252BD01E35A54E00ECE4C1 /* ViewController.m */; };
@@ -50,6 +52,9 @@
 		5B0CA4221E40221800DB33AD /* barikGPUCustomFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = barikGPUCustomFilter.h; sourceTree = "<group>"; };
 		5B0CA4231E40221800DB33AD /* barikGPUCustomFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = barikGPUCustomFilter.m; sourceTree = "<group>"; };
 		5B0CA4241E40221800DB33AD /* CustomShader2.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CustomShader2.fsh; sourceTree = "<group>"; };
+		5B0CA42C1E403D8000DB33AD /* barikGPUCustomFilterTwoTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = barikGPUCustomFilterTwoTexture.h; sourceTree = "<group>"; };
+		5B0CA42D1E403D8000DB33AD /* barikGPUCustomFilterTwoTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = barikGPUCustomFilterTwoTexture.m; sourceTree = "<group>"; };
+		5B0CA42E1E403D8000DB33AD /* CustomShader3.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CustomShader3.fsh; sourceTree = "<group>"; };
 		5B252BC61E35A54E00ECE4C1 /* GPUImageTesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUImageTesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B252BCA1E35A54E00ECE4C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5B252BCC1E35A54E00ECE4C1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -136,7 +141,11 @@
 			children = (
 				5B0CA4221E40221800DB33AD /* barikGPUCustomFilter.h */,
 				5B0CA4231E40221800DB33AD /* barikGPUCustomFilter.m */,
+				5B0CA42C1E403D8000DB33AD /* barikGPUCustomFilterTwoTexture.h */,
+				5B0CA42D1E403D8000DB33AD /* barikGPUCustomFilterTwoTexture.m */,
+				5B252C091E35A7B600ECE4C1 /* CustomShader.fsh */,
 				5B0CA4241E40221800DB33AD /* CustomShader2.fsh */,
+				5B0CA42E1E403D8000DB33AD /* CustomShader3.fsh */,
 				5BDA40911E35D3000058920C /* GPUImage.framework */,
 				5B252C0D1E35B7AA00ECE4C1 /* iap.jpg */,
 				5B252C0B1E35A83B00ECE4C1 /* palasyo.jpeg */,
@@ -150,7 +159,6 @@
 				5B252BD71E35A54E00ECE4C1 /* LaunchScreen.storyboard */,
 				5B252BDA1E35A54E00ECE4C1 /* Info.plist */,
 				5B252BC91E35A54E00ECE4C1 /* Supporting Files */,
-				5B252C091E35A7B600ECE4C1 /* CustomShader.fsh */,
 			);
 			path = GPUImageTesting;
 			sourceTree = "<group>";
@@ -307,6 +315,7 @@
 				5B252C0C1E35A83B00ECE4C1 /* palasyo.jpeg in Resources */,
 				5B0CA4261E40221800DB33AD /* CustomShader2.fsh in Resources */,
 				5B252C0A1E35A7B600ECE4C1 /* CustomShader.fsh in Resources */,
+				5B0CA4301E403D8000DB33AD /* CustomShader3.fsh in Resources */,
 				5B252BD61E35A54E00ECE4C1 /* Assets.xcassets in Resources */,
 				5B252BD41E35A54E00ECE4C1 /* Main.storyboard in Resources */,
 			);
@@ -337,6 +346,7 @@
 				5B252BCE1E35A54E00ECE4C1 /* AppDelegate.m in Sources */,
 				5B252BCB1E35A54E00ECE4C1 /* main.m in Sources */,
 				5B0CA4251E40221800DB33AD /* barikGPUCustomFilter.m in Sources */,
+				5B0CA42F1E403D8000DB33AD /* barikGPUCustomFilterTwoTexture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
