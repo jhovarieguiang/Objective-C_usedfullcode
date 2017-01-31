@@ -120,10 +120,10 @@
     [UIImageJPEGRepresentation(image, 1.0) writeToFile:pngPath atomically:YES];
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 @end
+
