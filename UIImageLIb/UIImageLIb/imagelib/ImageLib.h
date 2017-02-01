@@ -8,6 +8,7 @@
 
 #import <UIkit/UIkit.h>
 #import <Foundation/Foundation.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface ImageLib : NSObject
 +(UIImage *) scaleToSize :(UIImage *) img :(int)width :(int) height;
@@ -24,8 +25,10 @@
 +(UIImage*) comBinedTwoImage:(UIImage*) fgImage
                      inImage:(UIImage*) bgImage
                      atPoint:(CGPoint)  point;
-+(UIImage *) comBinedTwoImage2 :(UIImage*)firstImage : (UIImage*)secondImage ;
++(UIImage *) comBinedTwoImageWithAlpha :(UIImage*)firstImage : (UIImage*)secondImage ;
 + (NSMutableArray *) getMPOResults : (NSString *) mpofilesource;
++(UIImage *)rotateImage:(UIImage*)src byRadian:(CGFloat)radian;
 +(void) saveImageToDocument :(UIImage *)image : (NSString *)filename;
 +(UIImage *)loadUIImageFromAppDocument : (NSString *)filename;
++(void) saveImageToGallery :(UIImage *) image;
 @end

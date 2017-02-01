@@ -148,8 +148,8 @@
 
 
 +(UIImage*) comBinedTwoImage:(UIImage*) fgImage
-                     inImage:(UIImage*) bgImage
-                     atPoint:(CGPoint)  point
+              inImage:(UIImage*) bgImage
+              atPoint:(CGPoint)  point
 {
     UIGraphicsBeginImageContextWithOptions(bgImage.size, FALSE, 0.0);
     [bgImage drawInRect:CGRectMake( 0, 0, bgImage.size.width, bgImage.size.height)];
@@ -159,7 +159,7 @@
     return newImage;
 }
 
-+(UIImage*)comBinedTwoImage2 :(UIImage*)firstImage : (UIImage*)secondImage  {
++(UIImage*)comBinedTwoImageWithAlpha :(UIImage*)firstImage : (UIImage*)secondImage  {
     UIGraphicsBeginImageContext(firstImage.size);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -202,11 +202,11 @@
     UIImage *coloredImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     /* NSString *systemversion = [DeviceDetect getSystemVersion];
-     if([systemversion isEqualToString:@"9.2.1"]) { //iphone 6s puti
-     // CGContextRelease(context);
-     }
-     */
-    // return [self recreateImage:coloredImage];
+    if([systemversion isEqualToString:@"9.2.1"]) { //iphone 6s puti
+        // CGContextRelease(context);
+    }
+    */
+   // return [self recreateImage:coloredImage];
     return coloredImage;
 }
 
@@ -311,6 +311,33 @@
 }
 
 
++(UIImage *)rotateImage:(UIImage*)src byRadian:(CGFloat)radian
+    {
+        // calculate the size of the rotated view's containing box for our drawing space
+        UIView *rotatedViewBox = [[UIView alloc] initWithFrame:CGRectMake(0,0, src.size.width, src.size.height)];
+        CGAffineTransform t = CGAffineTransformMakeRotation(radian);
+        rotatedViewBox.transform = t;
+        CGSize rotatedSize = rotatedViewBox.frame.size;
+        
+        // Create the bitmap context
+        UIGraphicsBeginImageContext(rotatedSize);
+        CGContextRef bitmap = UIGraphicsGetCurrentContext();
+        
+        // Move the origin to the middle of the image so we will rotate and scale around the center.
+        CGContextTranslateCTM(bitmap, rotatedSize.width/2, rotatedSize.height/2);
+        
+        //   // Rotate the image context
+        CGContextRotateCTM(bitmap, radian);
+        
+        // Now, draw the rotated/scaled image into the context
+        CGContextScaleCTM(bitmap, 1.0, -1.0);
+        CGContextDrawImage(bitmap, CGRectMake(-src.size.width / 2, -src.size.height / 2, src.size.width, src.size.height), [src CGImage]);
+        
+        UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return newImage;
+    }
+    
 +(void) saveImageToDocument :(UIImage *)image : (NSString *)filename{
     // UIImage *image = ...;
     //NSString  *path = @"";
@@ -331,5 +358,13 @@
     return thumbNail;
 }
 
++(void) saveImageToGallery :(UIImage *) image {
+        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+        [library writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error){
+            if (error) {
+            } else {
+            }
+        }];
+}
 
 @end
